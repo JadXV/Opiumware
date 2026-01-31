@@ -1,0 +1,2107 @@
+{
+  "_credits": {
+    "_description": "Definitions from my other project https://github.com/JadXV/Nitrogen"
+  },
+  "completions": [
+    {
+      "type": "function",
+      "label": "isrbxactive",
+      "detail": "() -> boolean",
+      "documentation": "Checks if the Roblox window is currently active/focused"
+    },
+    {
+      "type": "function",
+      "label": "getgc",
+      "detail": "() -> table",
+      "documentation": "Returns a table of all garbage collected objects"
+    },
+    {
+      "type": "method",
+      "label": "getrawmetatable",
+      "detail": "(object: any) -> table?",
+      "documentation": "Returns the raw metatable of an object, bypassing __metatable"
+    },
+    {
+      "type": "function",
+      "label": "identifyexecutor",
+      "detail": "() -> string",
+      "documentation": "Returns the name of the executor being used"
+    },
+    {
+      "type": "function",
+      "label": "fireclickdetector",
+      "detail": "(clickDetector: Instance, distance?: number) -> void",
+      "documentation": "Simulates a click on a ClickDetector object"
+    },
+    {
+      "type": "method",
+      "label": "readfile",
+      "detail": "(path: string) -> string",
+      "documentation": "Reads the contents of a file and returns it as a string"
+    },
+    {
+      "type": "function",
+      "label": "writefile",
+      "detail": "(path: string, content: string) -> void",
+      "documentation": "Writes content to a file, creating it if it doesn't exist"
+    },
+    {
+      "type": "function",
+      "label": "appendfile",
+      "detail": "(path: string, content: string) -> void",
+      "documentation": "Appends content to the end of a file"
+    },
+    {
+      "type": "function",
+      "label": "loadfile",
+      "detail": "(path: string) -> function",
+      "documentation": "Loads a file and returns it as a function"
+    },
+    {
+      "type": "function",
+      "label": "listfiles",
+      "detail": "(path: string) -> Array<string>",
+      "documentation": "Returns a list of files in the specified directory"
+    },
+    {
+      "type": "function",
+      "label": "isfile",
+      "detail": "(path: string) -> boolean",
+      "documentation": "Checks if a file exists at the specified path"
+    },
+    {
+      "type": "function",
+      "label": "isfolder",
+      "detail": "(path: string) -> boolean",
+      "documentation": "Checks if a folder exists at the specified path"
+    },
+    {
+      "type": "function",
+      "label": "makefolder",
+      "detail": "(path: string) -> void",
+      "documentation": "Creates a new folder at the specified path"
+    },
+    {
+      "type": "function",
+      "label": "delfolder",
+      "detail": "(path: string) -> void",
+      "documentation": "Deletes a folder and all its contents at the specified path"
+    },
+    {
+      "type": "function",
+      "label": "delfile",
+      "detail": "(path: string) -> void",
+      "documentation": "Deletes a file at the specified path"
+    },
+    {
+      "type": "function",
+      "label": "getsenv",
+      "detail": "(script: LocalScript) -> table",
+      "documentation": "Returns the environment of a LocalScript"
+    },
+    {
+      "type": "function",
+      "label": "getcallingscript",
+      "detail": "() -> Instance",
+      "documentation": "Returns the script that is calling this function"
+    },
+    {
+      "type": "function",
+      "label": "getstack",
+      "detail": "(level: number) -> table",
+      "documentation": "Gets stack frame information"
+    },
+    {
+      "type": "function",
+      "label": "getthreadidentity",
+      "detail": "() -> number",
+      "documentation": "Gets the identity of the current thread"
+    },
+    {
+      "type": "function",
+      "label": "setthreadidentity",
+      "detail": "(identity: number) -> void",
+      "documentation": "Sets the identity of the current thread"
+    },
+    {
+      "type": "function",
+      "label": "hookfunction",
+      "detail": "(target: function, hook: function) -> function",
+      "documentation": "Replaces a function with a new one and returns the original function"
+    },
+    {
+      "type": "function",
+      "label": "newcclosure",
+      "detail": "(f: function) -> function",
+      "documentation": "Creates a new C closure from a Lua function for secure hooking"
+    },
+    {
+      "type": "function",
+      "label": "table.insert",
+      "detail": "(table: table, element: any) -> void",
+      "documentation": "Inserts an element at the end of the table"
+    },
+    {
+      "type": "function",
+      "label": "table.remove",
+      "detail": "(table: table, pos?: number) -> any",
+      "documentation": "Removes and returns an element from the table"
+    },
+    {
+      "type": "function",
+      "label": "table.concat",
+      "detail": "(table: table, sep?: string, i?: number, j?: number) -> string",
+      "documentation": "Concatenates table elements into a string"
+    },
+    {
+      "type": "function",
+      "label": "table.sort",
+      "detail": "(table: table, comp?: function) -> void",
+      "documentation": "Sorts table elements in place"
+    },
+    {
+      "type": "function",
+      "label": "table.clear",
+      "detail": "(table: table) -> void",
+      "documentation": "Clears all keys and values from the table"
+    },
+    {
+      "type": "function",
+      "label": "table.create",
+      "detail": "(count: number, value?: any) -> table",
+      "documentation": "Creates a new table with n elements initialized with value"
+    },
+    {
+      "type": "function",
+      "label": "table.find",
+      "detail": "(table: table, value: any, init?: number) -> number?",
+      "documentation": "Returns the index of the first occurrence of value in table"
+    },
+    {
+      "type": "function",
+      "label": "table.freeze",
+      "detail": "(table: table) -> table",
+      "documentation": "Freezes the table, making it read-only"
+    },
+    {
+      "type": "function",
+      "label": "table.clone",
+      "detail": "(table: table) -> table",
+      "documentation": "Creates a shallow copy of the table"
+    },
+    {
+      "type": "function",
+      "label": "math.abs",
+      "detail": "(x: number) -> number",
+      "documentation": "Returns the absolute value of x"
+    },
+    {
+      "type": "function",
+      "label": "math.ceil",
+      "detail": "(x: number) -> number",
+      "documentation": "Returns the smallest integer greater than or equal to x"
+    },
+    {
+      "type": "function",
+      "label": "math.floor",
+      "detail": "(x: number) -> number",
+      "documentation": "Returns the largest integer less than or equal to x"
+    },
+    {
+      "type": "function",
+      "label": "math.max",
+      "detail": "(...numbers) -> number",
+      "documentation": "Returns the maximum value among its arguments"
+    },
+    {
+      "type": "function",
+      "label": "math.min",
+      "detail": "(...numbers) -> number",
+      "documentation": "Returns the minimum value among its arguments"
+    },
+    {
+      "type": "function",
+      "label": "math.random",
+      "detail": "(m?: number, n?: number) -> number",
+      "documentation": "Returns a random number"
+    },
+    {
+      "type": "function",
+      "label": "math.randomseed",
+      "detail": "(x: number) -> void",
+      "documentation": "Sets the seed for the random generator"
+    },
+    {
+      "type": "function",
+      "label": "math.sin",
+      "detail": "(x: number) -> number",
+      "documentation": "Returns the sine of x (in radians)"
+    },
+    {
+      "type": "function",
+      "label": "math.cos",
+      "detail": "(x: number) -> number",
+      "documentation": "Returns the cosine of x (in radians)"
+    },
+    {
+      "type": "function",
+      "label": "math.tan",
+      "detail": "(x: number) -> number",
+      "documentation": "Returns the tangent of x (in radians)"
+    },
+    {
+      "type": "function",
+      "label": "math.rad",
+      "detail": "(x: number) -> number",
+      "documentation": "Converts degrees to radians"
+    },
+    {
+      "type": "function",
+      "label": "math.deg",
+      "detail": "(x: number) -> number",
+      "documentation": "Converts radians to degrees"
+    },
+    {
+      "type": "function",
+      "label": "math.sqrt",
+      "detail": "(x: number) -> number",
+      "documentation": "Returns the square root of x"
+    },
+    {
+      "type": "function",
+      "label": "math.pow",
+      "detail": "(x: number, y: number) -> number",
+      "documentation": "Returns x raised to the power y"
+    },
+    {
+      "type": "function",
+      "label": "math.clamp",
+      "detail": "(x: number, min: number, max: number) -> number",
+      "documentation": "Clamps x between min and max"
+    },
+    {
+      "type": "function",
+      "label": "math.lerp",
+      "detail": "(a: number, b: number, t: number) -> number",
+      "documentation": "Linearly interpolates between a and b by t"
+    },
+    {
+      "type": "function",
+      "label": "math.noise",
+      "detail": "(x: number, y?: number, z?: number) -> number",
+      "documentation": "Returns Perlin noise value"
+    },
+    {
+      "type": "function",
+      "label": "math.sign",
+      "detail": "(x: number) -> number",
+      "documentation": "Returns the sign of x (-1, 0, or 1)"
+    },
+    {
+      "type": "function",
+      "label": "math.round",
+      "detail": "(x: number) -> number",
+      "documentation": "Rounds x to the nearest integer"
+    },
+    {
+      "type": "function",
+      "label": "string.len",
+      "detail": "(s: string) -> number",
+      "documentation": "Returns the length of the string"
+    },
+    {
+      "type": "function",
+      "label": "string.sub",
+      "detail": "(s: string, i: number, j?: number) -> string",
+      "documentation": "Returns the substring from position i to j"
+    },
+    {
+      "type": "function",
+      "label": "string.upper",
+      "detail": "(s: string) -> string",
+      "documentation": "Converts string to uppercase"
+    },
+    {
+      "type": "function",
+      "label": "string.lower",
+      "detail": "(s: string) -> string",
+      "documentation": "Converts string to lowercase"
+    },
+    {
+      "type": "function",
+      "label": "string.find",
+      "detail": "(s: string, pattern: string, init?: number) -> number, number",
+      "documentation": "Finds pattern in the string"
+    },
+    {
+      "type": "function",
+      "label": "string.match",
+      "detail": "(s: string, pattern: string, init?: number) -> string",
+      "documentation": "Matches pattern in the string"
+    },
+    {
+      "type": "function",
+      "label": "string.format",
+      "detail": "(formatstring: string, ...args) -> string",
+      "documentation": "Returns a formatted version of its variable number of arguments"
+    },
+    {
+      "type": "function",
+      "label": "string.gsub",
+      "detail": "(s: string, pattern: string, repl: string|table|function) -> string, number",
+      "documentation": "Replaces all occurrences of the pattern"
+    },
+    {
+      "type": "function",
+      "label": "string.split",
+      "detail": "(s: string, separator?: string) -> Array<string>",
+      "documentation": "Splits the string by separator (Roblox specific)"
+    },
+    {
+      "type": "function",
+      "label": "string.rep",
+      "detail": "(s: string, n: number) -> string",
+      "documentation": "Returns a string that is n copies of s"
+    },
+    {
+      "type": "function",
+      "label": "string.reverse",
+      "detail": "(s: string) -> string",
+      "documentation": "Returns the reversed string"
+    },
+    {
+      "type": "function",
+      "label": "string.byte",
+      "detail": "(s: string, i?: number, j?: number) -> number...",
+      "documentation": "Returns the byte values of characters"
+    },
+    {
+      "type": "function",
+      "label": "string.char",
+      "detail": "(...bytes: number) -> string",
+      "documentation": "Returns a string from byte values"
+    },
+    {
+      "type": "keyword",
+      "label": "local",
+      "detail": "keyword",
+      "documentation": "Declares a local variable"
+    },
+    {
+      "type": "keyword",
+      "label": "function",
+      "detail": "keyword",
+      "documentation": "Declares a function"
+    },
+    {
+      "type": "keyword",
+      "label": "if",
+      "detail": "keyword",
+      "documentation": "Starts an if statement"
+    },
+    {
+      "type": "keyword",
+      "label": "then",
+      "detail": "keyword",
+      "documentation": "Used after if condition"
+    },
+    {
+      "type": "keyword",
+      "label": "else",
+      "detail": "keyword",
+      "documentation": "Alternative branch in if statement"
+    },
+    {
+      "type": "keyword",
+      "label": "elseif",
+      "detail": "keyword",
+      "documentation": "Additional condition in if statement"
+    },
+    {
+      "type": "keyword",
+      "label": "end",
+      "detail": "keyword",
+      "documentation": "Ends a block statement"
+    },
+    {
+      "type": "keyword",
+      "label": "for",
+      "detail": "keyword",
+      "documentation": "Starts a for loop"
+    },
+    {
+      "type": "keyword",
+      "label": "while",
+      "detail": "keyword",
+      "documentation": "Starts a while loop"
+    },
+    {
+      "type": "keyword",
+      "label": "do",
+      "detail": "keyword",
+      "documentation": "Starts a do block"
+    },
+    {
+      "type": "keyword",
+      "label": "repeat",
+      "detail": "keyword",
+      "documentation": "Starts a repeat-until loop"
+    },
+    {
+      "type": "keyword",
+      "label": "until",
+      "detail": "keyword",
+      "documentation": "Ends a repeat-until loop"
+    },
+    {
+      "type": "keyword",
+      "label": "break",
+      "detail": "keyword",
+      "documentation": "Exits a loop"
+    },
+    {
+      "type": "keyword",
+      "label": "return",
+      "detail": "keyword",
+      "documentation": "Returns from a function"
+    },
+    {
+      "type": "keyword",
+      "label": "continue",
+      "detail": "keyword",
+      "documentation": "Skips to the next iteration of a loop"
+    },
+    {
+      "type": "constant",
+      "label": "nil",
+      "detail": "keyword",
+      "documentation": "Represents no value or invalid value"
+    },
+    {
+      "type": "constant",
+      "label": "true",
+      "detail": "keyword",
+      "documentation": "Boolean true value"
+    },
+    {
+      "type": "constant",
+      "label": "false",
+      "detail": "keyword",
+      "documentation": "Boolean false value"
+    },
+    {
+      "type": "keyword",
+      "label": "self",
+      "detail": "keyword",
+      "documentation": "Reference to the current object in methods"
+    },
+    {
+      "type": "keyword",
+      "label": "and",
+      "detail": "logical operator",
+      "documentation": "Logical AND operator"
+    },
+    {
+      "type": "keyword",
+      "label": "or",
+      "detail": "logical operator",
+      "documentation": "Logical OR operator"
+    },
+    {
+      "type": "keyword",
+      "label": "not",
+      "detail": "logical operator",
+      "documentation": "Logical NOT operator"
+    },
+    {
+      "type": "keyword",
+      "label": "in",
+      "detail": "operator",
+      "documentation": "Iterator operator used in for loops"
+    },
+    {
+      "type": "function",
+      "label": "print",
+      "detail": "(message: any) -> void",
+      "documentation": "Prints a message to the output"
+    },
+    {
+      "type": "function",
+      "label": "warn",
+      "detail": "(message: any) -> void",
+      "documentation": "Prints a warning message to the output"
+    },
+    {
+      "type": "function",
+      "label": "wait",
+      "detail": "(seconds?: number) -> number",
+      "documentation": "Yields the current thread for the specified duration"
+    },
+    {
+      "type": "function",
+      "label": "task.wait",
+      "detail": "(seconds?: number) -> number",
+      "documentation": "Yields the current thread for the specified duration (preferred over wait)"
+    },
+    {
+      "type": "function",
+      "label": "task.spawn",
+      "detail": "(f: function, ...args) -> thread",
+      "documentation": "Runs a function in a new thread immediately"
+    },
+    {
+      "type": "function",
+      "label": "task.defer",
+      "detail": "(f: function, ...args) -> thread",
+      "documentation": "Defers a function to run at the end of the frame"
+    },
+    {
+      "type": "function",
+      "label": "task.delay",
+      "detail": "(seconds: number, f: function, ...args) -> thread",
+      "documentation": "Runs a function after a delay"
+    },
+    {
+      "type": "function",
+      "label": "task.cancel",
+      "detail": "(thread: thread) -> void",
+      "documentation": "Cancels a scheduled thread"
+    },
+    {
+      "type": "function",
+      "label": "pairs",
+      "detail": "(table: table) -> iterator",
+      "documentation": "Returns an iterator for all key-value pairs in a table"
+    },
+    {
+      "type": "function",
+      "label": "ipairs",
+      "detail": "(table: table) -> iterator",
+      "documentation": "Returns an iterator for integer-indexed elements in a table"
+    },
+    {
+      "type": "function",
+      "label": "type",
+      "detail": "(value: any) -> string",
+      "documentation": "Returns the type of a value as a string"
+    },
+    {
+      "type": "function",
+      "label": "typeof",
+      "detail": "(value: any) -> string",
+      "documentation": "Returns the Roblox type of a value (more specific than type)"
+    },
+    {
+      "type": "function",
+      "label": "tostring",
+      "detail": "(value: any) -> string",
+      "documentation": "Converts a value to a string"
+    },
+    {
+      "type": "function",
+      "label": "tonumber",
+      "detail": "(value: string|number, base?: number) -> number?",
+      "documentation": "Converts a value to a number"
+    },
+    {
+      "type": "function",
+      "label": "assert",
+      "detail": "(value: any, message?: string) -> any",
+      "documentation": "Raises an error if value is false or nil"
+    },
+    {
+      "type": "function",
+      "label": "error",
+      "detail": "(message: string, level?: number) -> never",
+      "documentation": "Raises an error with the given message"
+    },
+    {
+      "type": "function",
+      "label": "pcall",
+      "detail": "(f: function, ...args) -> boolean, ...",
+      "documentation": "Protected call - calls function and catches errors"
+    },
+    {
+      "type": "function",
+      "label": "xpcall",
+      "detail": "(f: function, msgh: function, ...args) -> boolean, ...",
+      "documentation": "Extended protected call with custom error handler"
+    },
+    {
+      "type": "function",
+      "label": "select",
+      "detail": "(index: number|string, ...args) -> any",
+      "documentation": "Selects elements from variable argument list"
+    },
+    {
+      "type": "function",
+      "label": "unpack",
+      "detail": "(table: table, i?: number, j?: number) -> ...",
+      "documentation": "Returns elements from the given table as separate values"
+    },
+    {
+      "type": "function",
+      "label": "require",
+      "detail": "(moduleName: ModuleScript) -> any",
+      "documentation": "Loads and returns the specified module"
+    },
+    {
+      "type": "function",
+      "label": "spawn",
+      "detail": "(f: function) -> void",
+      "documentation": "Runs a function in a new thread (deprecated, use task.spawn)"
+    },
+    {
+      "type": "function",
+      "label": "delay",
+      "detail": "(seconds: number, f: function) -> void",
+      "documentation": "Runs a function after a delay (deprecated, use task.delay)"
+    },
+    {
+      "type": "function",
+      "label": "tick",
+      "detail": "() -> number",
+      "documentation": "Returns time elapsed since epoch"
+    },
+    {
+      "type": "function",
+      "label": "time",
+      "detail": "() -> number",
+      "documentation": "Returns time elapsed since the game started"
+    },
+    {
+      "type": "function",
+      "label": "setmetatable",
+      "detail": "(table: table, metatable: table?) -> table",
+      "documentation": "Sets the metatable of a table"
+    },
+    {
+      "type": "function",
+      "label": "getmetatable",
+      "detail": "(object: any) -> table?",
+      "documentation": "Returns the metatable of an object"
+    },
+    {
+      "type": "function",
+      "label": "rawset",
+      "detail": "(table: table, key: any, value: any) -> table",
+      "documentation": "Sets a value without invoking metamethods"
+    },
+    {
+      "type": "function",
+      "label": "rawget",
+      "detail": "(table: table, key: any) -> any",
+      "documentation": "Gets a value without invoking metamethods"
+    },
+    {
+      "type": "function",
+      "label": "rawequal",
+      "detail": "(v1: any, v2: any) -> boolean",
+      "documentation": "Compares two values without invoking metamethods"
+    },
+    {
+      "type": "function",
+      "label": "next",
+      "detail": "(table: table, index?: any) -> any, any",
+      "documentation": "Returns the next key-value pair in a table"
+    },
+    {
+      "type": "class",
+      "label": "game",
+      "detail": "DataModel",
+      "documentation": "The root of the Roblox hierarchy"
+    },
+    {
+      "type": "class",
+      "label": "workspace",
+      "detail": "Workspace",
+      "documentation": "The Workspace service containing all 3D objects"
+    },
+    {
+      "type": "variable",
+      "label": "script",
+      "detail": "LuaSourceContainer",
+      "documentation": "Reference to the current script"
+    },
+    {
+      "type": "variable",
+      "label": "shared",
+      "detail": "table",
+      "documentation": "A table shared between all scripts"
+    },
+    {
+      "type": "variable",
+      "label": "_G",
+      "detail": "global table",
+      "documentation": "Global environment table"
+    },
+    {
+      "type": "method",
+      "label": "GetService",
+      "detail": "(serviceName: string) -> Instance",
+      "documentation": "Gets a Roblox service by name"
+    },
+    {
+      "type": "method",
+      "label": "FindFirstChild",
+      "detail": "(name: string, recursive?: boolean) -> Instance?",
+      "documentation": "Finds the first child with the given name"
+    },
+    {
+      "type": "method",
+      "label": "FindFirstChildOfClass",
+      "detail": "(className: string) -> Instance?",
+      "documentation": "Finds the first child of the specified class"
+    },
+    {
+      "type": "method",
+      "label": "FindFirstChildWhichIsA",
+      "detail": "(className: string, recursive?: boolean) -> Instance?",
+      "documentation": "Finds the first child that is or inherits from the specified class"
+    },
+    {
+      "type": "method",
+      "label": "FindFirstAncestor",
+      "detail": "(name: string) -> Instance?",
+      "documentation": "Finds the first ancestor with the given name"
+    },
+    {
+      "type": "method",
+      "label": "FindFirstAncestorOfClass",
+      "detail": "(className: string) -> Instance?",
+      "documentation": "Finds the first ancestor of the specified class"
+    },
+    {
+      "type": "method",
+      "label": "WaitForChild",
+      "detail": "(name: string, timeout?: number) -> Instance",
+      "documentation": "Waits for a child with the given name to exist"
+    },
+    {
+      "type": "method",
+      "label": "GetChildren",
+      "detail": "() -> Array<Instance>",
+      "documentation": "Returns an array of all children"
+    },
+    {
+      "type": "method",
+      "label": "GetDescendants",
+      "detail": "() -> Array<Instance>",
+      "documentation": "Returns an array of all descendants"
+    },
+    {
+      "type": "method",
+      "label": "IsA",
+      "detail": "(className: string) -> boolean",
+      "documentation": "Returns true if the instance is of the specified class"
+    },
+    {
+      "type": "method",
+      "label": "IsDescendantOf",
+      "detail": "(ancestor: Instance) -> boolean",
+      "documentation": "Returns true if the instance is a descendant of the specified ancestor"
+    },
+    {
+      "type": "method",
+      "label": "Clone",
+      "detail": "() -> Instance",
+      "documentation": "Creates a copy of the instance"
+    },
+    {
+      "type": "method",
+      "label": "Destroy",
+      "detail": "() -> void",
+      "documentation": "Destroys the instance and all descendants"
+    },
+    {
+      "type": "method",
+      "label": "ClearAllChildren",
+      "detail": "() -> void",
+      "documentation": "Destroys all children of the instance"
+    },
+    {
+      "type": "method",
+      "label": "GetPropertyChangedSignal",
+      "detail": "(property: string) -> RBXScriptSignal",
+      "documentation": "Returns a signal that fires when the property changes"
+    },
+    {
+      "type": "method",
+      "label": "GetAttribute",
+      "detail": "(name: string) -> any",
+      "documentation": "Gets an attribute value"
+    },
+    {
+      "type": "method",
+      "label": "SetAttribute",
+      "detail": "(name: string, value: any) -> void",
+      "documentation": "Sets an attribute value"
+    },
+    {
+      "type": "method",
+      "label": "GetAttributes",
+      "detail": "() -> table",
+      "documentation": "Returns all attributes as a table"
+    },
+    {
+      "type": "method",
+      "label": "Connect",
+      "detail": "(callback: function) -> RBXScriptConnection",
+      "documentation": "Connects a callback function to an event"
+    },
+    {
+      "type": "method",
+      "label": "Once",
+      "detail": "(callback: function) -> RBXScriptConnection",
+      "documentation": "Connects a callback that only fires once"
+    },
+    {
+      "type": "method",
+      "label": "Wait",
+      "detail": "() -> ...any",
+      "documentation": "Yields until the event fires"
+    },
+    {
+      "type": "method",
+      "label": "Disconnect",
+      "detail": "() -> void",
+      "documentation": "Disconnects the connection"
+    },
+    {
+      "type": "class",
+      "label": "Instance.new",
+      "detail": "(className: string, parent?: Instance) -> Instance",
+      "documentation": "Creates a new instance of the specified class"
+    },
+    {
+      "type": "class",
+      "label": "Vector3.new",
+      "detail": "(x?: number, y?: number, z?: number) -> Vector3",
+      "documentation": "Creates a new Vector3"
+    },
+    {
+      "type": "class",
+      "label": "Vector2.new",
+      "detail": "(x?: number, y?: number) -> Vector2",
+      "documentation": "Creates a new Vector2"
+    },
+    {
+      "type": "class",
+      "label": "CFrame.new",
+      "detail": "(pos?: Vector3, lookAt?: Vector3) -> CFrame",
+      "documentation": "Creates a new CFrame"
+    },
+    {
+      "type": "class",
+      "label": "CFrame.Angles",
+      "detail": "(rx: number, ry: number, rz: number) -> CFrame",
+      "documentation": "Creates a CFrame from rotation angles"
+    },
+    {
+      "type": "class",
+      "label": "CFrame.fromEulerAnglesXYZ",
+      "detail": "(rx: number, ry: number, rz: number) -> CFrame",
+      "documentation": "Creates a CFrame from Euler angles"
+    },
+    {
+      "type": "class",
+      "label": "CFrame.lookAt",
+      "detail": "(at: Vector3, lookAt: Vector3, up?: Vector3) -> CFrame",
+      "documentation": "Creates a CFrame positioned at 'at' looking towards 'lookAt'"
+    },
+    {
+      "type": "class",
+      "label": "Color3.new",
+      "detail": "(r?: number, g?: number, b?: number) -> Color3",
+      "documentation": "Creates a new Color3 from RGB values (0-1)"
+    },
+    {
+      "type": "class",
+      "label": "Color3.fromRGB",
+      "detail": "(r: number, g: number, b: number) -> Color3",
+      "documentation": "Creates a Color3 from RGB values (0-255)"
+    },
+    {
+      "type": "class",
+      "label": "Color3.fromHSV",
+      "detail": "(h: number, s: number, v: number) -> Color3",
+      "documentation": "Creates a Color3 from HSV values"
+    },
+    {
+      "type": "class",
+      "label": "Color3.fromHex",
+      "detail": "(hex: string) -> Color3",
+      "documentation": "Creates a Color3 from a hex string"
+    },
+    {
+      "type": "class",
+      "label": "UDim2.new",
+      "detail": "(xScale: number, xOffset: number, yScale: number, yOffset: number) -> UDim2",
+      "documentation": "Creates a new UDim2"
+    },
+    {
+      "type": "class",
+      "label": "UDim2.fromScale",
+      "detail": "(xScale: number, yScale: number) -> UDim2",
+      "documentation": "Creates a UDim2 from scale values only"
+    },
+    {
+      "type": "class",
+      "label": "UDim2.fromOffset",
+      "detail": "(xOffset: number, yOffset: number) -> UDim2",
+      "documentation": "Creates a UDim2 from offset values only"
+    },
+    {
+      "type": "class",
+      "label": "UDim.new",
+      "detail": "(scale: number, offset: number) -> UDim",
+      "documentation": "Creates a new UDim"
+    },
+    {
+      "type": "class",
+      "label": "TweenInfo.new",
+      "detail": "(time?: number, easingStyle?: EasingStyle, easingDirection?: EasingDirection) -> TweenInfo",
+      "documentation": "Creates a new TweenInfo object"
+    },
+    {
+      "type": "class",
+      "label": "BrickColor.new",
+      "detail": "(name: string | number) -> BrickColor",
+      "documentation": "Creates a new BrickColor"
+    },
+    {
+      "type": "class",
+      "label": "Ray.new",
+      "detail": "(origin: Vector3, direction: Vector3) -> Ray",
+      "documentation": "Creates a new Ray"
+    },
+    {
+      "type": "class",
+      "label": "Random.new",
+      "detail": "(seed?: number) -> Random",
+      "documentation": "Creates a new Random number generator"
+    },
+    {
+      "type": "class",
+      "label": "Region3.new",
+      "detail": "(min: Vector3, max: Vector3) -> Region3",
+      "documentation": "Creates a new Region3"
+    },
+    {
+      "type": "class",
+      "label": "Rect.new",
+      "detail": "(min: Vector2, max: Vector2) -> Rect",
+      "documentation": "Creates a new Rect"
+    },
+    {
+      "type": "class",
+      "label": "NumberRange.new",
+      "detail": "(min: number, max?: number) -> NumberRange",
+      "documentation": "Creates a new NumberRange"
+    },
+    {
+      "type": "class",
+      "label": "NumberSequence.new",
+      "detail": "(keypoints: Array<NumberSequenceKeypoint>) -> NumberSequence",
+      "documentation": "Creates a new NumberSequence"
+    },
+    {
+      "type": "class",
+      "label": "ColorSequence.new",
+      "detail": "(keypoints: Array<ColorSequenceKeypoint>) -> ColorSequence",
+      "documentation": "Creates a new ColorSequence"
+    },
+    {
+      "type": "class",
+      "label": "RaycastParams.new",
+      "detail": "() -> RaycastParams",
+      "documentation": "Creates a new RaycastParams object"
+    },
+    {
+      "type": "class",
+      "label": "OverlapParams.new",
+      "detail": "() -> OverlapParams",
+      "documentation": "Creates a new OverlapParams object"
+    },
+    {
+      "type": "property",
+      "label": "WalkSpeed",
+      "detail": "number",
+      "documentation": "Controls how fast the Humanoid walks"
+    },
+    {
+      "type": "property",
+      "label": "JumpPower",
+      "detail": "number",
+      "documentation": "Controls how high the Humanoid jumps"
+    },
+    {
+      "type": "property",
+      "label": "JumpHeight",
+      "detail": "number",
+      "documentation": "Controls the maximum jump height"
+    },
+    {
+      "type": "property",
+      "label": "Health",
+      "detail": "number",
+      "documentation": "Current health of the Humanoid"
+    },
+    {
+      "type": "property",
+      "label": "MaxHealth",
+      "detail": "number",
+      "documentation": "Maximum health of the Humanoid"
+    },
+    {
+      "type": "property",
+      "label": "Parent",
+      "detail": "Instance?",
+      "documentation": "The parent of the instance"
+    },
+    {
+      "type": "property",
+      "label": "Name",
+      "detail": "string",
+      "documentation": "The name of the instance"
+    },
+    {
+      "type": "property",
+      "label": "ClassName",
+      "detail": "string (read-only)",
+      "documentation": "The class name of the instance"
+    },
+    {
+      "type": "property",
+      "label": "Enabled",
+      "detail": "boolean",
+      "documentation": "Whether the instance is enabled"
+    },
+    {
+      "type": "property",
+      "label": "Visible",
+      "detail": "boolean",
+      "documentation": "Whether the GUI element is visible"
+    },
+    {
+      "type": "property",
+      "label": "Anchored",
+      "detail": "boolean",
+      "documentation": "Whether the part is affected by physics"
+    },
+    {
+      "type": "property",
+      "label": "CanCollide",
+      "detail": "boolean",
+      "documentation": "Whether the part can collide with other parts"
+    },
+    {
+      "type": "property",
+      "label": "Transparency",
+      "detail": "number",
+      "documentation": "The transparency level of the part (0-1)"
+    },
+    {
+      "type": "property",
+      "label": "Position",
+      "detail": "Vector3",
+      "documentation": "The position of the part in world space"
+    },
+    {
+      "type": "property",
+      "label": "CFrame",
+      "detail": "CFrame",
+      "documentation": "The position and orientation of the part"
+    },
+    {
+      "type": "property",
+      "label": "Size",
+      "detail": "Vector3",
+      "documentation": "The size of the part"
+    },
+    {
+      "type": "property",
+      "label": "Character",
+      "detail": "Model?",
+      "documentation": "The character model of the player"
+    },
+    {
+      "type": "property",
+      "label": "UserId",
+      "detail": "number",
+      "documentation": "The unique user ID of the player"
+    },
+    {
+      "type": "property",
+      "label": "Text",
+      "detail": "string",
+      "documentation": "The text content of a TextLabel/TextButton/TextBox"
+    },
+    {
+      "type": "method",
+      "label": "MoveTo",
+      "detail": "(position: Vector3) -> void",
+      "documentation": "Makes the Humanoid path to the target position"
+    },
+    {
+      "type": "method",
+      "label": "Jump",
+      "detail": "() -> void",
+      "documentation": "Makes the Humanoid jump"
+    },
+    {
+      "type": "method",
+      "label": "TakeDamage",
+      "detail": "(amount: number) -> void",
+      "documentation": "Reduces the Humanoid's health by the specified amount"
+    },
+    {
+      "type": "method",
+      "label": "Kick",
+      "detail": "(message?: string) -> void",
+      "documentation": "Kicks the player from the game"
+    },
+    {
+      "type": "method",
+      "label": "GetMouse",
+      "detail": "() -> Mouse",
+      "documentation": "Returns the player's mouse"
+    },
+    {
+      "type": "method",
+      "label": "Raycast",
+      "detail": "(origin: Vector3, direction: Vector3, params?: RaycastParams) -> RaycastResult?",
+      "documentation": "Casts a ray and returns the result"
+    },
+    {
+      "type": "method",
+      "label": "GetPartBoundsInBox",
+      "detail": "(cframe: CFrame, size: Vector3, params?: OverlapParams) -> Array<Instance>",
+      "documentation": "Returns parts within a box region"
+    },
+    {
+      "type": "method",
+      "label": "GetPartBoundsInRadius",
+      "detail": "(position: Vector3, radius: number, params?: OverlapParams) -> Array<Instance>",
+      "documentation": "Returns parts within a spherical region"
+    },
+    {
+      "type": "method",
+      "label": "Create",
+      "detail": "(instance: Instance, tweenInfo: TweenInfo, properties: table) -> Tween",
+      "documentation": "Creates a new tween for the specified instance"
+    },
+    {
+      "type": "method",
+      "label": "Play",
+      "detail": "() -> void",
+      "documentation": "Plays the tween/animation/sound"
+    },
+    {
+      "type": "method",
+      "label": "Pause",
+      "detail": "() -> void",
+      "documentation": "Pauses the tween/animation/sound"
+    },
+    {
+      "type": "method",
+      "label": "Cancel",
+      "detail": "() -> void",
+      "documentation": "Cancels the tween"
+    },
+    {
+      "type": "method",
+      "label": "Stop",
+      "detail": "() -> void",
+      "documentation": "Stops the tween/animation/sound"
+    },
+    {
+      "type": "method",
+      "label": "LoadAnimation",
+      "detail": "(animation: Animation) -> AnimationTrack",
+      "documentation": "Loads an animation onto the Animator"
+    },
+    {
+      "type": "method",
+      "label": "FireServer",
+      "detail": "(...args) -> void",
+      "documentation": "Fires a RemoteEvent to the server"
+    },
+    {
+      "type": "method",
+      "label": "InvokeServer",
+      "detail": "(...args) -> ...any",
+      "documentation": "Invokes a RemoteFunction on the server"
+    },
+    {
+      "type": "method",
+      "label": "FireClient",
+      "detail": "(player: Player, ...args) -> void",
+      "documentation": "Fires a RemoteEvent to a specific client"
+    },
+    {
+      "type": "method",
+      "label": "FireAllClients",
+      "detail": "(...args) -> void",
+      "documentation": "Fires a RemoteEvent to all clients"
+    },
+    {
+      "type": "function",
+      "label": "getgenv",
+      "detail": "() -> table",
+      "documentation": "Returns the global environment table for the exploit"
+    },
+    {
+      "type": "function",
+      "label": "getrenv",
+      "detail": "() -> table",
+      "documentation": "Returns the Roblox global environment"
+    },
+    {
+      "type": "function",
+      "label": "getreg",
+      "detail": "() -> table",
+      "documentation": "Returns the Lua registry table"
+    },
+    {
+      "type": "function",
+      "label": "getinstances",
+      "detail": "() -> Array<Instance>",
+      "documentation": "Returns all instances in the game"
+    },
+    {
+      "type": "function",
+      "label": "getnilinstances",
+      "detail": "() -> Array<Instance>",
+      "documentation": "Returns all instances parented to nil"
+    },
+    {
+      "type": "function",
+      "label": "getscripts",
+      "detail": "() -> Array<Instance>",
+      "documentation": "Returns all scripts in the game"
+    },
+    {
+      "type": "function",
+      "label": "getloadedmodules",
+      "detail": "() -> Array<Instance>",
+      "documentation": "Returns all loaded ModuleScripts"
+    },
+    {
+      "type": "function",
+      "label": "getconnections",
+      "detail": "(signal: RBXScriptSignal) -> Array<table>",
+      "documentation": "Returns all connections to a signal"
+    },
+    {
+      "type": "function",
+      "label": "firesignal",
+      "detail": "(signal: RBXScriptSignal, ...args: any[]) -> void",
+      "documentation": "Fires a signal with the provided arguments"
+    },
+    {
+      "type": "function",
+      "label": "firetouchinterest",
+      "detail": "(part: Instance, hitbox: Instance, toggle: number) -> void",
+      "documentation": "Simulates touch interaction between two parts"
+    },
+    {
+      "type": "function",
+      "label": "sethiddenproperty",
+      "detail": "(instance: Instance, property: string, value: any) -> void",
+      "documentation": "Sets the value of a hidden property"
+    },
+    {
+      "type": "function",
+      "label": "gethiddenproperty",
+      "detail": "(instance: Instance, property: string) -> any",
+      "documentation": "Gets the value of a hidden property"
+    },
+    {
+      "type": "function",
+      "label": "setrawmetatable",
+      "detail": "(object: any, metatable: table) -> void",
+      "documentation": "Sets the raw metatable of an object, bypassing protection"
+    },
+    {
+      "type": "function",
+      "label": "setreadonly",
+      "detail": "(table: table, readonly: boolean) -> void",
+      "documentation": "Sets whether a table is read-only"
+    },
+    {
+      "type": "function",
+      "label": "isreadonly",
+      "detail": "(table: table) -> boolean",
+      "documentation": "Checks if a table is read-only"
+    },
+    {
+      "type": "function",
+      "label": "setclipboard",
+      "detail": "(content: string) -> void",
+      "documentation": "Copies text to the system clipboard"
+    },
+    {
+      "type": "function",
+      "label": "getnamecallmethod",
+      "detail": "() -> string",
+      "documentation": "Gets the current namecall method in a __namecall metatable hook"
+    },
+    {
+      "type": "function",
+      "label": "setnamecallmethod",
+      "detail": "(method: string) -> void",
+      "documentation": "Sets the namecall method in a __namecall metatable hook"
+    },
+    {
+      "type": "function",
+      "label": "cloneref",
+      "detail": "(instance: Instance) -> Instance",
+      "documentation": "Creates a clone reference of an instance"
+    },
+    {
+      "type": "function",
+      "label": "compareinstances",
+      "detail": "(a: Instance, b: Instance) -> boolean",
+      "documentation": "Compares two instances, accounting for cloned references"
+    },
+    {
+      "type": "function",
+      "label": "hookmetamethod",
+      "detail": "(object: any, metamethod: string, hook: function) -> function",
+      "documentation": "Hooks a metamethod of an object"
+    },
+    {
+      "type": "function",
+      "label": "loadstring",
+      "detail": "(code: string, chunkname?: string) -> function",
+      "documentation": "Loads a Lua string as a function"
+    },
+    {
+      "type": "function",
+      "label": "request",
+      "detail": "(options: table) -> table",
+      "documentation": "Makes an HTTP request"
+    },
+    {
+      "type": "function",
+      "label": "http_request",
+      "detail": "(options: table) -> table",
+      "documentation": "Alias for request"
+    },
+    {
+      "type": "function",
+      "label": "syn.request",
+      "detail": "(options: table) -> table",
+      "documentation": "Makes an HTTP request (Synapse X)"
+    },
+    {
+      "type": "function",
+      "label": "getupvalue",
+      "detail": "(f: function, i: number) -> any, string",
+      "documentation": "Returns the value and name of the i-th upvalue of the function"
+    },
+    {
+      "type": "function",
+      "label": "setupvalue",
+      "detail": "(f: function, i: number, v: any) -> string",
+      "documentation": "Sets the value of the i-th upvalue of the function"
+    },
+    {
+      "type": "function",
+      "label": "getupvalues",
+      "detail": "(f: function) -> table",
+      "documentation": "Returns a table of upvalues of the function"
+    },
+    {
+      "type": "function",
+      "label": "getconstant",
+      "detail": "(f: function, i: number) -> any",
+      "documentation": "Returns the i-th constant of the function"
+    },
+    {
+      "type": "function",
+      "label": "setconstant",
+      "detail": "(f: function, i: number, v: any) -> void",
+      "documentation": "Sets the i-th constant of the function"
+    },
+    {
+      "type": "function",
+      "label": "getconstants",
+      "detail": "(f: function) -> table",
+      "documentation": "Returns a table of constants of the function"
+    },
+    {
+      "type": "library",
+      "label": "Drawing.new",
+      "detail": "(className: string) -> Drawing",
+      "documentation": "Creates a new Drawing object. Supported: Line, Circle, Square, Text, Triangle, Image, Quad"
+    },
+    {
+      "type": "function",
+      "label": "gethui",
+      "detail": "() -> Instance",
+      "documentation": "Gets hidden UI container"
+    },
+    {
+      "type": "function",
+      "label": "protectgui",
+      "detail": "(gui: Instance) -> void",
+      "documentation": "Protects GUI from being destroyed"
+    },
+    {
+      "type": "function",
+      "label": "fireproximityprompt",
+      "detail": "(proximityPrompt: Instance) -> void",
+      "documentation": "Triggers a ProximityPrompt"
+    },
+    {
+      "type": "function",
+      "label": "keypress",
+      "detail": "(keyCode: number) -> void",
+      "documentation": "Simulates a key press event"
+    },
+    {
+      "type": "function",
+      "label": "keyrelease",
+      "detail": "(keyCode: number) -> void",
+      "documentation": "Simulates a key release event"
+    },
+    {
+      "type": "function",
+      "label": "mouse1click",
+      "detail": "() -> void",
+      "documentation": "Simulates a left mouse button click"
+    },
+    {
+      "type": "function",
+      "label": "mouse1press",
+      "detail": "() -> void",
+      "documentation": "Simulates pressing down the left mouse button"
+    },
+    {
+      "type": "function",
+      "label": "mouse1release",
+      "detail": "() -> void",
+      "documentation": "Simulates releasing the left mouse button"
+    },
+    {
+      "type": "function",
+      "label": "mouse2click",
+      "detail": "() -> void",
+      "documentation": "Simulates a right mouse button click"
+    },
+    {
+      "type": "function",
+      "label": "mousescroll",
+      "detail": "(amount: number) -> void",
+      "documentation": "Simulates scrolling the mouse wheel"
+    },
+    {
+      "type": "function",
+      "label": "mousemoverel",
+      "detail": "(deltaX: number, deltaY: number) -> void",
+      "documentation": "Moves the mouse cursor relative to its current position"
+    },
+    {
+      "type": "function",
+      "label": "mousemoveabs",
+      "detail": "(x: number, y: number) -> void",
+      "documentation": "Moves the mouse cursor to the specified screen coordinates"
+    },
+    {
+      "type": "function",
+      "label": "saveinstance",
+      "detail": "(options?: table) -> void",
+      "documentation": "Saves the game instance to file"
+    },
+    {
+      "type": "function",
+      "label": "iscclosure",
+      "detail": "(f: function) -> boolean",
+      "documentation": "Returns whether the function is a C closure"
+    },
+    {
+      "type": "function",
+      "label": "islclosure",
+      "detail": "(f: function) -> boolean",
+      "documentation": "Returns whether the function is a Lua closure"
+    },
+    {
+      "type": "function",
+      "label": "checkcaller",
+      "detail": "() -> boolean",
+      "documentation": "Returns true if the current function was called by the exploit"
+    },
+    {
+      "type": "type",
+      "label": "export type",
+      "detail": "type export",
+      "documentation": "Defines and exports a new type alias (Luau)"
+    },
+    {
+      "type": "variable",
+      "label": "Enum",
+      "detail": "Enums",
+      "documentation": "Contains all Roblox enumerations"
+    },
+    {
+      "type": "event",
+      "label": "Heartbeat",
+      "detail": "RBXScriptSignal",
+      "documentation": "Fires every frame, after physics simulation"
+    },
+    {
+      "type": "event",
+      "label": "RenderStepped",
+      "detail": "RBXScriptSignal",
+      "documentation": "Fires every frame, before rendering (client only)"
+    },
+    {
+      "type": "event",
+      "label": "Stepped",
+      "detail": "RBXScriptSignal",
+      "documentation": "Fires every frame, before physics simulation"
+    },
+    {
+      "type": "event",
+      "label": "PlayerAdded",
+      "detail": "RBXScriptSignal",
+      "documentation": "Fires when a player joins the game"
+    },
+    {
+      "type": "event",
+      "label": "PlayerRemoving",
+      "detail": "RBXScriptSignal",
+      "documentation": "Fires when a player is leaving the game"
+    },
+    {
+      "type": "event",
+      "label": "CharacterAdded",
+      "detail": "RBXScriptSignal",
+      "documentation": "Fires when a player's character spawns"
+    },
+    {
+      "type": "event",
+      "label": "CharacterRemoving",
+      "detail": "RBXScriptSignal",
+      "documentation": "Fires when a player's character is removed"
+    },
+    {
+      "type": "event",
+      "label": "Touched",
+      "detail": "RBXScriptSignal",
+      "documentation": "Fires when the part touches another part"
+    },
+    {
+      "type": "event",
+      "label": "TouchEnded",
+      "detail": "RBXScriptSignal",
+      "documentation": "Fires when touch ends with another part"
+    },
+    {
+      "type": "event",
+      "label": "OnClientEvent",
+      "detail": "RBXScriptSignal",
+      "documentation": "Fires when the server fires this RemoteEvent to the client"
+    },
+    {
+      "type": "event",
+      "label": "OnServerEvent",
+      "detail": "RBXScriptSignal",
+      "documentation": "Fires when a client fires this RemoteEvent to the server"
+    },
+    {
+      "type": "event",
+      "label": "OnClientInvoke",
+      "detail": "callback",
+      "documentation": "Called when the server invokes this RemoteFunction"
+    },
+    {
+      "type": "event",
+      "label": "OnServerInvoke",
+      "detail": "callback",
+      "documentation": "Called when a client invokes this RemoteFunction"
+    },
+    {
+      "type": "event",
+      "label": "InputBegan",
+      "detail": "RBXScriptSignal",
+      "documentation": "Fires when user input begins"
+    },
+    {
+      "type": "event",
+      "label": "InputEnded",
+      "detail": "RBXScriptSignal",
+      "documentation": "Fires when user input ends"
+    },
+    {
+      "type": "event",
+      "label": "InputChanged",
+      "detail": "RBXScriptSignal",
+      "documentation": "Fires when user input changes"
+    },
+    {
+      "type": "service",
+      "label": "Players",
+      "detail": "Service",
+      "documentation": "Service for managing players"
+    },
+    {
+      "type": "service",
+      "label": "Workspace",
+      "detail": "Service",
+      "documentation": "Service containing all 3D objects"
+    },
+    {
+      "type": "service",
+      "label": "ReplicatedStorage",
+      "detail": "Service",
+      "documentation": "Storage replicated to all clients"
+    },
+    {
+      "type": "service",
+      "label": "ReplicatedFirst",
+      "detail": "Service",
+      "documentation": "Storage replicated to clients before anything else"
+    },
+    {
+      "type": "service",
+      "label": "ServerStorage",
+      "detail": "Service",
+      "documentation": "Server-only storage"
+    },
+    {
+      "type": "service",
+      "label": "ServerScriptService",
+      "detail": "Service",
+      "documentation": "Server-only scripts"
+    },
+    {
+      "type": "service",
+      "label": "Lighting",
+      "detail": "Service",
+      "documentation": "Service for lighting and atmosphere"
+    },
+    {
+      "type": "service",
+      "label": "StarterGui",
+      "detail": "Service",
+      "documentation": "GUIs cloned to players on spawn"
+    },
+    {
+      "type": "service",
+      "label": "StarterPack",
+      "detail": "Service",
+      "documentation": "Tools given to players on spawn"
+    },
+    {
+      "type": "service",
+      "label": "StarterPlayer",
+      "detail": "Service",
+      "documentation": "Player spawn configuration"
+    },
+    {
+      "type": "service",
+      "label": "TweenService",
+      "detail": "Service",
+      "documentation": "Service for creating tweens"
+    },
+    {
+      "type": "service",
+      "label": "UserInputService",
+      "detail": "Service",
+      "documentation": "Service for user input handling"
+    },
+    {
+      "type": "service",
+      "label": "RunService",
+      "detail": "Service",
+      "documentation": "Service for frame-by-frame updates"
+    },
+    {
+      "type": "service",
+      "label": "Debris",
+      "detail": "Service",
+      "documentation": "Service for automatic cleanup"
+    },
+    {
+      "type": "service",
+      "label": "SoundService",
+      "detail": "Service",
+      "documentation": "Service for sound settings"
+    },
+    {
+      "type": "service",
+      "label": "PhysicsService",
+      "detail": "Service",
+      "documentation": "Service for physics settings and collision groups"
+    },
+    {
+      "type": "service",
+      "label": "DataStoreService",
+      "detail": "Service",
+      "documentation": "Service for persistent data storage"
+    },
+    {
+      "type": "service",
+      "label": "MessagingService",
+      "detail": "Service",
+      "documentation": "Service for cross-server messaging"
+    },
+    {
+      "type": "service",
+      "label": "HttpService",
+      "detail": "Service",
+      "documentation": "Service for HTTP requests and JSON encoding"
+    },
+    {
+      "type": "service",
+      "label": "MarketplaceService",
+      "detail": "Service",
+      "documentation": "Service for game passes and products"
+    },
+    {
+      "type": "service",
+      "label": "TextService",
+      "detail": "Service",
+      "documentation": "Service for text filtering"
+    },
+    {
+      "type": "service",
+      "label": "PathfindingService",
+      "detail": "Service",
+      "documentation": "Service for NPC pathfinding"
+    },
+    {
+      "type": "service",
+      "label": "CollectionService",
+      "detail": "Service",
+      "documentation": "Service for tagging instances"
+    },
+    {
+      "type": "service",
+      "label": "ContextActionService",
+      "detail": "Service",
+      "documentation": "Service for binding actions to inputs"
+    },
+    {
+      "type": "service",
+      "label": "GuiService",
+      "detail": "Service",
+      "documentation": "Service for GUI management"
+    },
+    {
+      "type": "service",
+      "label": "VirtualInputManager",
+      "detail": "Service",
+      "documentation": "Service for simulating input"
+    },
+    {
+      "type": "service",
+      "label": "ProximityPromptService",
+      "detail": "Service",
+      "documentation": "Service for proximity prompts"
+    },
+    {
+      "type": "service",
+      "label": "Chat",
+      "detail": "Service",
+      "documentation": "Service for chat functionality"
+    },
+    {
+      "type": "service",
+      "label": "Teams",
+      "detail": "Service",
+      "documentation": "Service for team management"
+    },
+    {
+      "type": "service",
+      "label": "BadgeService",
+      "detail": "Service",
+      "documentation": "Service for badges"
+    },
+    {
+      "type": "service",
+      "label": "LocalizationService",
+      "detail": "Service",
+      "documentation": "Service for game localization"
+    },
+    {
+      "type": "service",
+      "label": "PolicyService",
+      "detail": "Service",
+      "documentation": "Service for policy information"
+    },
+    {
+      "type": "property",
+      "label": "LocalPlayer",
+      "detail": "Player",
+      "documentation": "The local player (client only)"
+    },
+    {
+      "type": "method",
+      "label": "GetPlayers",
+      "detail": "() -> Array<Player>",
+      "documentation": "Returns an array of all players"
+    },
+    {
+      "type": "method",
+      "label": "GetPlayerFromCharacter",
+      "detail": "(character: Model) -> Player?",
+      "documentation": "Gets the player from their character model"
+    },
+    {
+      "type": "method",
+      "label": "JSONEncode",
+      "detail": "(table: table) -> string",
+      "documentation": "Encodes a table as JSON"
+    },
+    {
+      "type": "method",
+      "label": "JSONDecode",
+      "detail": "(json: string) -> table",
+      "documentation": "Decodes JSON to a table"
+    },
+    {
+      "type": "method",
+      "label": "GenerateGUID",
+      "detail": "(wrapInCurlyBraces?: boolean) -> string",
+      "documentation": "Generates a unique identifier"
+    },
+    {
+      "type": "method",
+      "label": "UrlEncode",
+      "detail": "(input: string) -> string",
+      "documentation": "URL-encodes a string"
+    },
+    {
+      "type": "method",
+      "label": "RequestAsync",
+      "detail": "(requestInfo: table) -> table",
+      "documentation": "Makes an HTTP request (server only)"
+    },
+    {
+      "type": "method",
+      "label": "GetAsync",
+      "detail": "(url: string) -> string",
+      "documentation": "Makes a GET request (server only)"
+    },
+    {
+      "type": "method",
+      "label": "PostAsync",
+      "detail": "(url: string, data: string, contentType?: Enum.HttpContentType) -> string",
+      "documentation": "Makes a POST request (server only)"
+    },
+    {
+      "type": "method",
+      "label": "AddTag",
+      "detail": "(instance: Instance, tag: string) -> void",
+      "documentation": "Adds a tag to an instance"
+    },
+    {
+      "type": "method",
+      "label": "RemoveTag",
+      "detail": "(instance: Instance, tag: string) -> void",
+      "documentation": "Removes a tag from an instance"
+    },
+    {
+      "type": "method",
+      "label": "GetTagged",
+      "detail": "(tag: string) -> Array<Instance>",
+      "documentation": "Returns all instances with the tag"
+    },
+    {
+      "type": "method",
+      "label": "HasTag",
+      "detail": "(instance: Instance, tag: string) -> boolean",
+      "documentation": "Checks if an instance has a tag"
+    },
+    {
+      "type": "method",
+      "label": "AddItem",
+      "detail": "(item: Instance, lifetime: number) -> void",
+      "documentation": "Schedules an instance for destruction"
+    },
+    {
+      "type": "method",
+      "label": "IsKeyDown",
+      "detail": "(keyCode: Enum.KeyCode) -> boolean",
+      "documentation": "Returns whether a key is currently pressed"
+    },
+    {
+      "type": "method",
+      "label": "IsMouseButtonPressed",
+      "detail": "(mouseButton: Enum.UserInputType) -> boolean",
+      "documentation": "Returns whether a mouse button is pressed"
+    },
+    {
+      "type": "method",
+      "label": "GetMouseLocation",
+      "detail": "() -> Vector2",
+      "documentation": "Returns the current mouse position"
+    },
+    {
+      "type": "method",
+      "label": "BindAction",
+      "detail": "(actionName: string, callback: function, createTouchButton: boolean, ...inputTypes) -> void",
+      "documentation": "Binds an action to input types"
+    },
+    {
+      "type": "method",
+      "label": "UnbindAction",
+      "detail": "(actionName: string) -> void",
+      "documentation": "Unbinds an action"
+    },
+    {
+      "type": "method",
+      "label": "Lerp",
+      "detail": "(goal: CFrame | Vector3 | Color3, alpha: number) -> CFrame | Vector3 | Color3",
+      "documentation": "Linearly interpolates towards goal"
+    },
+    {
+      "type": "property",
+      "label": "X",
+      "detail": "number",
+      "documentation": "The X component"
+    },
+    {
+      "type": "property",
+      "label": "Y",
+      "detail": "number",
+      "documentation": "The Y component"
+    },
+    {
+      "type": "property",
+      "label": "Z",
+      "detail": "number",
+      "documentation": "The Z component"
+    },
+    {
+      "type": "property",
+      "label": "Magnitude",
+      "detail": "number (read-only)",
+      "documentation": "The length/magnitude of the vector"
+    },
+    {
+      "type": "property",
+      "label": "Unit",
+      "detail": "Vector3 (read-only)",
+      "documentation": "The normalized (unit) vector"
+    },
+    {
+      "type": "method",
+      "label": "Cross",
+      "detail": "(other: Vector3) -> Vector3",
+      "documentation": "Returns the cross product"
+    },
+    {
+      "type": "method",
+      "label": "Dot",
+      "detail": "(other: Vector3) -> number",
+      "documentation": "Returns the dot product"
+    },
+    {
+      "type": "property",
+      "label": "LookVector",
+      "detail": "Vector3 (read-only)",
+      "documentation": "The forward direction of the CFrame"
+    },
+    {
+      "type": "property",
+      "label": "RightVector",
+      "detail": "Vector3 (read-only)",
+      "documentation": "The right direction of the CFrame"
+    },
+    {
+      "type": "property",
+      "label": "UpVector",
+      "detail": "Vector3 (read-only)",
+      "documentation": "The up direction of the CFrame"
+    },
+    {
+      "type": "method",
+      "label": "ToWorldSpace",
+      "detail": "(cf: CFrame) -> CFrame",
+      "documentation": "Transforms from object to world space"
+    },
+    {
+      "type": "method",
+      "label": "ToObjectSpace",
+      "detail": "(cf: CFrame) -> CFrame",
+      "documentation": "Transforms from world to object space"
+    },
+    {
+      "type": "method",
+      "label": "PointToWorldSpace",
+      "detail": "(v3: Vector3) -> Vector3",
+      "documentation": "Transforms a point from object to world space"
+    },
+    {
+      "type": "method",
+      "label": "PointToObjectSpace",
+      "detail": "(v3: Vector3) -> Vector3",
+      "documentation": "Transforms a point from world to object space"
+    },
+    {
+      "type": "method",
+      "label": "Inverse",
+      "detail": "() -> CFrame",
+      "documentation": "Returns the inverse CFrame"
+    },
+    {
+      "type": "function",
+      "label": "coroutine.create",
+      "detail": "(f: function) -> thread",
+      "documentation": "Creates a new coroutine"
+    },
+    {
+      "type": "function",
+      "label": "coroutine.resume",
+      "detail": "(co: thread, ...args) -> boolean, ...",
+      "documentation": "Resumes a coroutine"
+    },
+    {
+      "type": "function",
+      "label": "coroutine.yield",
+      "detail": "(...args) -> ...",
+      "documentation": "Yields the current coroutine"
+    },
+    {
+      "type": "function",
+      "label": "coroutine.status",
+      "detail": "(co: thread) -> string",
+      "documentation": "Returns the status of a coroutine"
+    },
+    {
+      "type": "function",
+      "label": "coroutine.running",
+      "detail": "() -> thread, boolean",
+      "documentation": "Returns the running coroutine"
+    },
+    {
+      "type": "function",
+      "label": "coroutine.wrap",
+      "detail": "(f: function) -> function",
+      "documentation": "Creates a coroutine wrapper function"
+    },
+    {
+      "type": "function",
+      "label": "coroutine.close",
+      "detail": "(co: thread) -> boolean, string?",
+      "documentation": "Closes a coroutine"
+    },
+    {
+      "type": "method",
+      "label": "GetDebugId",
+      "detail": "(scopeLength?: number) -> string",
+      "documentation": "Returns a unique debug identifier for the instance"
+    },
+    {
+      "type": "method",
+      "label": "GetFullName",
+      "detail": "() -> string",
+      "documentation": "Returns the full path name of the instance"
+    }
+  ]
+}

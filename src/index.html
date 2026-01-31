@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://unpkg.com https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; connect-src 'self' https://scriptblox.com https://cdn.jsdelivr.net; img-src 'self' data: https:; font-src 'self' https://unpkg.com https://cdn.jsdelivr.net; worker-src 'self' blob:;">
+    <title>Opiumware</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://cdn.jsdelivr.net/npm/monaco-editor@0.44.0/min/vs/loader.js"></script>
+</head>
+<body class="app-loading">
+    <script>document.body.className = 'app-loading theme-' + (localStorage.getItem('opiumware-theme') || 'dark');</script>
+    <div class="editor-container">
+        <div class="title-bar">
+            <div class="title-bar-drag-region"></div>
+            <div class="title-bar-center">
+                <div class="navigation-buttons">
+                    <button class="nav-btn" id="navBack">
+                        <i data-lucide="chevron-left"></i>
+                    </button>
+                    <button class="nav-btn" id="navForward">
+                        <i data-lucide="chevron-right"></i>
+                    </button>
+                </div>
+                <div class="search-box" id="quickOpenTrigger">
+                    <i data-lucide="sparkles"></i>
+                    <input type="text" placeholder="Search scripts..." class="search-input" readonly>
+                    <span class="search-shortcut">⌘P</span>
+                </div>
+            </div>
+            <div class="title-bar-right">
+                <div class="port-selector" id="portSelector">
+                    <button class="port-selector-btn" id="portSelectorBtn">
+                        <i data-lucide="play"></i>
+                        <span id="portSelectorLabel">All Ports</span>
+                        <i data-lucide="chevron-down" class="port-chevron"></i>
+                    </button>
+                    <div class="port-selector-dropdown" id="portSelectorDropdown">
+                        <div class="port-selector-title">Execute On</div>
+                        <div class="port-selector-item selected" data-port="auto">
+                            <span class="port-selector-radio"></span>
+                            <span>All Opiumware Ports</span>
+                        </div>
+                        <div class="port-selector-divider"></div>
+                        <div class="port-selector-header">Specific Ports</div>
+                        <div class="port-list" id="portList">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <div class="activity-bar">
+                <div class="activity-icon active" data-panel="explorer" title="Explorer">
+                    <i data-lucide="file"></i>
+                </div>
+                <div class="activity-icon" data-panel="search" title="Search">
+                    <i data-lucide="search"></i>
+                </div>
+                <div class="activity-icon" data-panel="autoexec" title="Autoexec">
+                    <i data-lucide="zap"></i>
+                </div>
+                <div class="activity-icon" data-panel="scripthub" title="Script Hub">
+                    <i data-lucide="book-open"></i>
+                </div>
+                <div class="activity-bottom">
+                    <div class="activity-icon" data-panel="settings" title="Settings">
+                        <i data-lucide="settings"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sidebar" id="sidebar">
+                <div class="sidebar-resize-handle" id="sidebarResizeHandle"></div>
+                <div class="sidebar-panel" id="explorerPanel">
+                    <div class="sidebar-header">
+                        <span class="sidebar-title">EXPLORER</span>
+                        <div class="sidebar-actions">
+                            <button class="sidebar-action" id="newFileBtn" title="New File"><i data-lucide="file-plus"></i></button>
+                            <button class="sidebar-action" id="newFolderBtn" title="New Folder"><i data-lucide="folder-plus"></i></button>
+                            <button class="sidebar-action" id="refreshBtn" title="Refresh"><i data-lucide="refresh-cw"></i></button>
+                        </div>
+                    </div>
+                    
+                    <div class="sidebar-content-wrapper">
+                        <div class="sidebar-top-sections" id="sidebarTopSections">
+                            <div class="local-scripts-section">
+                                <div class="section-header collapsible" id="localScriptsHeader">
+                                    <i data-lucide="chevron-down" class="chevron"></i>
+                                    <span>LOCAL SCRIPTS</span>
+                                    <span class="badge" id="localScriptsCount">0</span>
+                                </div>
+                                <div class="section-content" id="localScriptsList"></div>
+                            </div>
+                        </div>
+                        <div class="sidebar-sections-resize-handle" id="sidebarSectionsResizeHandle"></div>
+                        <div class="folders-section">
+                            <div class="folders-list" id="foldersList"></div>
+                            <button class="add-folder-btn" id="addFolderBtn" title="Add Folder">
+                                <i data-lucide="plus"></i>
+                                <span>Add Folder</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="sidebar-panel hidden" id="searchPanel">
+                    <div class="sidebar-header">
+                        <span class="sidebar-title">SEARCH</span>
+                    </div>
+                    <div class="search-container">
+                        <div class="search-input-wrapper">
+                            <input type="text" placeholder="Search" id="searchInput" class="panel-input">
+                        </div>
+                        <div class="search-input-wrapper">
+                            <input type="text" placeholder="Replace" id="replaceInput" class="panel-input">
+                        </div>
+                        <div class="search-actions">
+                            <button class="search-action-btn" id="replaceBtn" title="Replace">Replace</button>
+                            <button class="search-action-btn" id="replaceAllBtn" title="Replace All">Replace All</button>
+                        </div>
+                        <div class="search-results" id="searchResults"></div>
+                    </div>
+                </div>
+
+                <div class="sidebar-panel hidden" id="autoexecPanel">
+                    <div class="sidebar-header">
+                        <span class="sidebar-title">AUTOEXEC</span>
+                    </div>
+                    <div class="autoexec-container">
+                        <div class="autoexec-hint">Scripts here run automatically when Roblox launches</div>
+                        <div class="autoexec-list" id="autoexecList"></div>
+                    </div>
+                </div>
+
+                <div class="sidebar-panel hidden" id="scripthubPanel">
+                    <div class="sidebar-header">
+                        <span class="sidebar-title">SCRIPT HUB</span>
+                    </div>
+                    <div class="scripthub-container">
+                        <div class="scripthub-search">
+                            <i data-lucide="search"></i>
+                            <input type="text" placeholder="Search scripts..." id="scripthubSearchInput" class="panel-input">
+                        </div>
+                        <div class="scripthub-content" id="scripthubContent">
+                            <div class="scripthub-loading hidden" id="scripthubLoading">
+                                <div class="loading-spinner"></div>
+                            </div>
+                            <div class="scripthub-list" id="scripthubList"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="sidebar-panel hidden" id="settingsPanel">
+                    <div class="sidebar-header">
+                        <span class="sidebar-title">SETTINGS</span>
+                    </div>
+                    <div class="settings-container">
+                        <div class="setting-section">
+                            <label class="setting-section-title">Theme</label>
+                            <div class="theme-options">
+                                <label class="theme-option">
+                                    <input type="radio" name="theme" value="dark" checked>
+                                    <span class="theme-preview theme-dark-preview"></span>
+                                    <span>Dark (Default)</span>
+                                </label>
+                                <label class="theme-option">
+                                    <input type="radio" name="theme" value="midnight">
+                                    <span class="theme-preview theme-midnight-preview"></span>
+                                    <span>Midnight</span>
+                                </label>
+                                <label class="theme-option">
+                                    <input type="radio" name="theme" value="purple">
+                                    <span class="theme-preview theme-purple-preview"></span>
+                                    <span>Purple</span>
+                                </label>
+                                <label class="theme-option">
+                                    <input type="radio" name="theme" value="rose">
+                                    <span class="theme-preview theme-rose-preview"></span>
+                                    <span>Rose</span>
+                                </label>
+                                <label class="theme-option">
+                                    <input type="radio" name="theme" value="ocean">
+                                    <span class="theme-preview theme-ocean-preview"></span>
+                                    <span>Ocean</span>
+                                </label>
+                                <label class="theme-option">
+                                    <input type="radio" name="theme" value="light">
+                                    <span class="theme-preview theme-light-preview"></span>
+                                    <span>Light</span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="setting-section">
+                            <label class="setting-section-title">Editor</label>
+                            <div class="setting-item">
+                                <label>
+                                    <input type="checkbox" id="minimapCheckbox" class="setting-checkbox" checked>
+                                    Show Minimap
+                                </label>
+                            </div>
+                        </div>
+                        <div class="setting-section">
+                            <label class="setting-section-title">Folders</label>
+                            <button class="open-scripts-folder-btn" id="openScriptsFolderBtn">
+                                <i data-lucide="folder-open"></i>
+                                <span>Open Scripts Folder</span>
+                            </button>
+                            <button class="open-scripts-folder-btn" id="openOpiumwareFolderBtn" style="margin-top: 8px;">
+                                <i data-lucide="folder"></i>
+                                <span>Open Opiumware Folder</span>
+                            </button>
+                        </div>
+                        <div class="setting-section">
+                            <label class="setting-section-title">Credits</label>
+                            <div class="credits-container">
+                                <div class="credit-item">
+                                    <i data-lucide="cpu"></i>
+                                    <div class="credit-info">
+                                        <span class="credit-role">Executor Developer</span>
+                                        <a href="https://github.com/norbyv1" target="_blank" class="credit-link">@Norby</a>
+                                    </div>
+                                </div>
+                                <div class="credit-item">
+                                    <i data-lucide="palette"></i>
+                                    <div class="credit-info">
+                                        <span class="credit-role">UI Developer</span>
+                                        <a href="https://github.com/jadxv" target="_blank" class="credit-link">@JadXV</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="setting-section">
+                            <div class="version-info">
+                                <span class="version-label">Carbon <span id="versionNumber">v0.0.0</span> by JadXV</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="editor-area">
+                <div class="tabs-container" id="tabsContainer">
+                    <div class="tabs-scroll" id="tabsScroll"></div>
+                    <div class="tabs-actions">
+                        <button class="roblox-btn" id="robloxBtn" title="Open Roblox">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
+                                <path d="M6 6H18V18H6V6ZM10 10V14H14V10H10Z" fill-rule="evenodd" clip-rule="evenodd" transform="rotate(22, 12, 12)" />
+                            </svg>
+                        </button>
+                        <button class="execute-btn" id="executeBtn" title="Execute Script">
+                            <i data-lucide="play"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="breadcrumb" id="breadcrumb"></div>
+
+                <div class="editor-wrapper">
+                    <div class="welcome-tab" id="welcomeTab">
+                        <div class="welcome-content">
+                            <h1><img src="assets/symb.svg" class="welcome-icon" alt="Opiumware">Opiumware</h1>
+                            <p>Carbon Editor <span id="welcomeVersion">v1.0.0</span></p>
+                            <div class="welcome-actions">
+                                <button class="welcome-btn" id="welcomeNewFile">
+                                    <i data-lucide="file-plus"></i> New File
+                                </button>
+                                <button class="welcome-btn" id="welcomeOpenFolder">
+                                    <i data-lucide="folder-open"></i> Open Folder
+                                </button>
+                            </div>
+                            <div class="welcome-shortcuts">
+                                <h3>Keyboard Shortcuts</h3>
+                                <div class="shortcut-grid">
+                                    <div class="shortcut"><kbd>⌘</kbd><kbd>T</kbd> New Tab</div>
+                                    <div class="shortcut"><kbd>⌘</kbd><kbd>W</kbd> Close Tab</div>
+                                    <div class="shortcut"><kbd>⌘</kbd><kbd>S</kbd> Save</div>
+                                    <div class="shortcut"><kbd>⌘</kbd><kbd>O</kbd> Open File</div>
+                                    <div class="shortcut"><kbd>⌘</kbd><kbd>P</kbd> Quick Open</div>
+                                    <div class="shortcut"><kbd>⌘</kbd><kbd>F</kbd> Search</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="monacoEditor" class="editor-hidden"></div>
+                </div>
+
+                <div class="console-container" id="consoleContainer">
+                    <div class="console-resize-handle" id="consoleResizeHandle"></div>
+                    <div class="console-header">
+                        <span class="console-title">Console</span>
+                        <div class="console-actions">
+                            <button class="console-btn" id="consoleClearBtn" title="Clear Console">
+                                <i data-lucide="trash-2"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="console-output" id="consoleOutput"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="status-bar">
+            <div class="status-left">
+                <span class="status-item branch" id="gitBranch"><i data-lucide="git-branch"></i> Opiumware</span>
+                <span class="status-item" id="problemsStatus"><i data-lucide="x-circle"></i> idk <i data-lucide="triangle-alert"></i> idk</span>
+            </div>
+            <div class="status-right">
+                <span class="status-item cursor-position" id="cursorPosition">Ln 1, Col 1</span>
+                <span class="status-item" id="indentStatus">Spaces: 4</span>
+                <span class="status-item" id="encodingStatus">UTF-8</span>
+                <span class="status-item" id="eolStatus">LF</span>
+                <span class="status-item language" id="languageStatus">Plain Text</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="context-menu hidden" id="contextMenu">
+        <div class="context-item" data-action="newFile"><i data-lucide="file-plus"></i> New File</div>
+        <div class="context-item" data-action="newFolder"><i data-lucide="folder-plus"></i> New Folder</div>
+        <div class="context-separator"></div>
+        <div class="context-item" data-action="rename"><i data-lucide="pencil"></i> Rename</div>
+        <div class="context-item" data-action="delete"><i data-lucide="trash-2"></i> Delete</div>
+        <div class="context-separator"></div>
+        <div class="context-item" data-action="copyPath"><i data-lucide="copy"></i> Copy Path</div>
+    </div>
+    <div class="context-menu hidden" id="savedScriptsContextMenu">
+        <div class="context-item" data-action="open"><i data-lucide="file"></i> Open</div>
+        <div class="context-item" data-action="execute"><i data-lucide="play"></i> Execute</div>
+        <div class="context-separator"></div>
+        <div class="context-item" data-action="toggleAutoexec"><i data-lucide="zap"></i> <span id="autoexecLabel">Add to Autoexec</span></div>
+        <div class="context-separator"></div>
+        <div class="context-item" data-action="rename"><i data-lucide="pencil"></i> Rename</div>
+        <div class="context-item" data-action="delete"><i data-lucide="trash-2"></i> Delete</div>
+    </div>
+    <div class="modal hidden" id="quickOpenModal">
+        <div class="modal-content quick-open">
+            <div class="smart-search-header">
+                <i data-lucide="sparkles" class="smart-search-icon"></i>
+                <input type="text" placeholder="Search saved scripts, folders, and ScriptHub..." id="quickOpenSearch" class="quick-open-input">
+            </div>
+            <div class="quick-open-results" id="quickOpenResults"></div>
+        </div>
+    </div>
+
+    <div class="modal hidden" id="goToLineModal">
+        <div class="modal-content go-to-line">
+            <input type="text" placeholder="Go to line number..." id="goToLineInput" class="quick-open-input">
+        </div>
+    </div>
+
+    <script src="frontend.js"></script>
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>
