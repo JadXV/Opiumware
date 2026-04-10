@@ -1,0 +1,16 @@
+{
+  "name": "opiumware",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "tauri": "tauri",
+    "build": "npx tauri build --target universal-apple-darwin"
+  },
+  "devDependencies": {
+    "@tauri-apps/cli": "^2"
+  },
+  "dependencies": {
+    "lua-format": "^1.5.3-c"
+  }
+}

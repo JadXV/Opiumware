@@ -1,0 +1,68 @@
+{
+  "identifier": "default",
+  "description": "Capability for the main window",
+  "windows": ["main"],
+  "permissions": [
+    "core:default",
+    "core:window:default",
+    "core:window:allow-start-dragging",
+    "core:window:allow-set-always-on-top",
+    "core:window:allow-show",
+    "core:window:allow-set-focus",
+    "core:window:allow-set-size",
+    "core:window:allow-set-position",
+    "core:window:allow-current-monitor",
+    "fs:default",
+    "fs:allow-read-text-file",
+    "fs:allow-write-text-file",
+    "fs:allow-read-dir",
+    "fs:allow-mkdir",
+    "fs:allow-remove",
+    "fs:allow-rename",
+    "fs:allow-exists",
+    {
+      "identifier": "fs:scope",
+      "allow": [
+        { "path": "$HOME/**" },
+        { "path": "$HOME/**/.*" }
+      ]
+    },
+    "shell:default",
+    "shell:allow-open",
+    "shell:allow-execute",
+    "shell:allow-spawn",
+    "dialog:default",
+    "dialog:allow-open",
+    "dialog:allow-save",
+    "dialog:allow-message",
+    "dialog:allow-confirm",
+    "os:default",
+    "os:allow-locale",
+    "os:allow-platform",
+    "os:allow-version",
+    "os:allow-os-type",
+    "os:allow-arch",
+    "clipboard-manager:default",
+    "clipboard-manager:allow-write-text",
+    "notification:default",
+    "notification:allow-notify",
+    "notification:allow-is-permission-granted",
+    "notification:allow-request-permission",
+    "http:default",
+    {
+      "identifier": "http:default",
+      "allow": [
+        { "url": "http://127.0.0.1/*" },
+        { "url": "https://discord.com/api/*" },
+        { "url": "https://scriptblox.com/api/*" },
+        { "url": "https://rscripts.net/api/v2/*" },
+        { "url": "https://apis.roblox.com/universes/*" },
+        { "url": "https://discord.com/*" },
+        { "url": "https://discord.com/assets/*" },
+        { "url": "https://discord.com/oauth2/authorize" },
+        { "url": "https://raw.githubusercontent.com/devnorb/host/main/*" },
+        { "url": "https://raw.githubusercontent.com/devnorb/OpiumwareResources/refs/heads/main/modules/*" }
+      ]
+    }
+  ]
+}
