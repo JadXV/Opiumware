@@ -60,8 +60,8 @@
         { "url": "https://discord.com/*" },
         { "url": "https://discord.com/assets/*" },
         { "url": "https://discord.com/oauth2/authorize" },
-        { "url": "https://raw.githubusercontent.com/devnorb/host/main/*" },
-        { "url": "https://raw.githubusercontent.com/devnorb/OpiumwareResources/refs/heads/main/modules/*" }
+        { "url": "https://raw.githubusercontent.com/JadXV/OpiumwareResources/main/*" },
+        { "url": "https://raw.githubusercontent.com/JadXV/OpiumwareResources/refs/heads/main/modules/*" }
       ]
     }
   ]

@@ -711,11 +711,11 @@ class OpiumwareEditor {
 
     getQuickScriptUrl(id) {
         const urls = {
-            'infiniteyield': 'https://raw.githubusercontent.com/devnorb/OpiumwareResources/refs/heads/main/modules/infinite_yield.lua',
-            'dexexplorer': 'https://raw.githubusercontent.com/devnorb/OpiumwareResources/refs/heads/main/modules/dex_explorer.lua',
-            'simplespy': 'https://raw.githubusercontent.com/devnorb/OpiumwareResources/refs/heads/main/modules/simple_spy.lua',
-            'projectautov6': 'https://raw.githubusercontent.com/devnorb/OpiumwareResources/refs/heads/main/modules/project_auto_v6.lua',
-            'morfos': 'https://raw.githubusercontent.com/devnorb/OpiumwareResources/refs/heads/main/modules/morfos.lua',
+            'infiniteyield': 'https://raw.githubusercontent.com/JadXV/OpiumwareResources/refs/heads/main/modules/infinite_yield.lua',
+            'dexexplorer': 'https://raw.githubusercontent.com/JadXV/OpiumwareResources/refs/heads/main/modules/dex_explorer.lua',
+            'simplespy': 'https://raw.githubusercontent.com/JadXV/OpiumwareResources/refs/heads/main/modules/simple_spy.lua',
+            'projectautov6': 'https://raw.githubusercontent.com/JadXV/OpiumwareResources/refs/heads/main/modules/project_auto_v6.lua',
+            'morfos': 'https://raw.githubusercontent.com/JadXV/OpiumwareResources/refs/heads/main/modules/morfos.lua',
         };
         return urls[id] || null;
     }
